@@ -15,6 +15,13 @@ class AgriFoodImport implements ToCollection, WithHeadingRow
     public function collection(Collection $rows)
     {
         foreach ($rows as $row) {
+
+            /**
+             * added this line of code to prevent duplication in the database 
+             * in the case where by the email in the excel sheet is already in the agrifood table,
+             * what we do is we update that record in the table
+             * @var mixed
+             */
             $agriFood = AgriFoodModel::where('email', $row['email'])->first();
             if ($agriFood) {
                 $agriFood->update([
