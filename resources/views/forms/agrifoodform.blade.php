@@ -15,56 +15,63 @@
                     </nav>
                 </div>
                 <div class="row">
-                    <div class="col-12">
-                        <div class="card statusCard rounded-3 mt-3 status-card-light-bg shadow" style="display:none">
-                            <div class="card-body p-1 pb-0 d-flex align-items-center justify-content-center">
-                                <h5 class="fs-4 statusHeader text-success fw-bold" style="display: none">successful</h5>
+                    <div class="d-flex justify-content-start">
+                        <div class="col-10">
+                            <div class="card statusCard rounded-3 mt-3 status-card-light-bg shadow" style="display:none">
+                                <div class="card-body p-1 pb-0 d-flex align-items-center justify-content-center">
+                                    <h5 class="fs-4 statusHeader text-success fw-bold" style="display: none"></h5>
+                                </div>
                             </div>
-                        </div>
-                        <div class="card rounded-3 pt-3 addRecordForm formcolorlight">
-                            <div class="card-body">
-                                <form class="agrifoodform" method="post" data-url="{{ route('agrifood.upload') }}"
-                                    enctype="multipart/form-data">
-                                    @csrf
-                                    <div class="input-group bg-transparent">
-                                        <input type="file" class="form-control" id="file-select" name="file" required>
-                                        <button class="btn btn-outline-success btn-success text-light">Submit</button>
-                                    </div>
-                                </form>
+                            <div class="card rounded-3 pt-3 addRecordForm formcolorlight">
+                                <div class="card-body">
+                                    <form class="agrifoodform" method="post" data-url="{{ route('agrifood.upload') }}"
+                                        enctype="multipart/form-data">
+                                        @csrf
+                                        <div class="input-group bg-transparent">
+                                            <input type="file" class="form-control" id="file-select" name="file">
+                                            <button class="btn btn-outline-success btn-success text-light"
+                                                type="submit">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
+                            <div class="errorDiv d-none">
+                                <p class="text-danger errorMessage fs-7 "></p>
+                            </div>
+
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12 pt-5 record-div">
+                    <div class="col-10 pt-5 record-div">
                         <div class="table-responsive">
-                            @if ($records->count())
-                                <table class="table table-hover table-light record-table shadow ">
-                                    <tbody class="tbody">
-                                        <tr class="">
-                                            <th class="text-muted heading text-capitalize">Surname</th>
-                                            <th class="text-muted heading text-capitalize">Other names</th>
-                                            <th class="text-muted heading text-capitalize">Age</th>
-                                            <th class="text-muted heading text-capitalize">Gender</th>
-                                            <th class="text-muted heading text-capitalize">Whatsapp number</th>
-                                            <th class="text-muted heading text-capitalize">Email</th>
-                                            <th class="text-muted heading text-capitalize">Residential address</th>
-                                            <th class="text-muted heading text-capitalize">Occupation</th>
-                                            <th class="text-muted heading text-capitalize">Business name</th>
-                                            <th class="text-muted heading text-capitalize">work location</th>
-                                            <th class="text-muted heading text-capitalize">business type</th>
-                                            <th class="text-muted heading text-capitalize">business nature</th>
-                                            <th class="text-muted heading text-capitalize">business sector</th>
-                                            <th class="text-muted heading text-capitalize">work experience</th>
-                                            <th class="text-muted heading text-capitalize">have employees</th>
-                                            <th class="text-muted heading text-capitalize">number of employees</th>
-                                            <th class="text-muted heading text-capitalize">plan to expand</th>
-                                            <th class="text-muted heading text-capitalize">support needed for expansion</th>
-                                            <th class="text-muted heading text-capitalize">AgriFood Rating</th>
-                                            <th class="text-muted heading text-capitalize">program improvement
-                                                recommendation
-                                            </th>
-                                        </tr>
+                            <table class="table table-borderless table-striped table-light record-table shadow ">
+                                <tbody class="tbody">
+                                    <tr class="">
+                                        <th class="text-secondary heading text-capitalize">Surname</th>
+                                        <th class="text-secondary heading text-capitalize">Other names</th>
+                                        <th class="text-secondary heading text-capitalize">Age</th>
+                                        <th class="text-secondary heading text-capitalize">Gender</th>
+                                        <th class="text-secondary heading text-capitalize">Whatsapp number</th>
+                                        <th class="text-secondary heading text-capitalize">Email</th>
+                                        <th class="text-secondary heading text-capitalize">Residential address</th>
+                                        <th class="text-secondary heading text-capitalize">Occupation</th>
+                                        <th class="text-secondary heading text-capitalize">Business name</th>
+                                        <th class="text-secondary heading text-capitalize">work location</th>
+                                        <th class="text-secondary heading text-capitalize">business type</th>
+                                        <th class="text-secondary heading text-capitalize">business nature</th>
+                                        <th class="text-secondary heading text-capitalize">business sector</th>
+                                        <th class="text-secondary heading text-capitalize">work experience</th>
+                                        <th class="text-secondary heading text-capitalize">have employees</th>
+                                        <th class="text-secondary heading text-capitalize">number of employees</th>
+                                        <th class="text-secondary heading text-capitalize">plan to expand</th>
+                                        <th class="text-secondary heading text-capitalize">support needed for expansion</th>
+                                        <th class="text-secondary heading text-capitalize">AgriFood Rating</th>
+                                        <th class="text-secondary heading text-capitalize">program improvement
+                                            recommendation
+                                        </th>
+                                    </tr>
+                                    @if ($records->count())
                                         @foreach ($records as $record)
                                             <tr class="records">
                                                 <td class="table-data text-secondary">{{ $record->surname }}</td>
@@ -105,9 +112,9 @@
                                                     {{ $record->recommendation_for_improving_program }}</td>
                                             </tr>
                                         @endforeach
-                                    </tbody>
-                                </table>
-                            @endif
+                                    @endif
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>

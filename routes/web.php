@@ -16,6 +16,8 @@ Route::get('login', function () {
 })->name('login');
 
 Route::get('/agrifood', [AgriFoodController::class, 'index'])->name('AgriFood');
+Route::get('/agrifood/search', [AgriFoodController::class, 'search'])->name('agrifood.search');
+
 Route::get('/agrifood/upload', [AgriFoodController::class, 'store'])->name('agrifood.upload');
 Route::post('/agrifood/upload', [AgriFoodController::class, 'import']);
 

@@ -12,7 +12,7 @@
                         <i class="bi bi-person fs-3 fw-bold userIcon"></i>
                     </div>
                     <div class="d-flex flex-column">
-                        <span class="fs-4 fw-bold text-dark greetUser">Good evening, User</span>
+                        <span class="fs-4 fw-bold text-dark greetUser">Good evening, Mubarak</span>
                         <span class="small fw-bold text-secondary">Here is what's happening.</span>
                     </div>
                 </div>
@@ -20,14 +20,14 @@
         </div>
 
         <section class="section dashboard">
-            <div class="row ">
+            <div class="row">
                 <div class="col-12">
                     <div class="row">
-                        <div class="col-xxl-3 col-md-3">
+                        <div class="col-xxl-3 col-md-3 mb-5">
                             <div class="card rounded-5 cards text-secondary">
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <h5 class="card-title fs-5">Initiatives</h5>
+                                        <h5 class="card-title text-muted fs-5">Initiatives</h5>
                                         <i class="bi bi-globe-europe-africa fs-3 fw-bold"></i>
                                     </div>
                                     <div class="">
@@ -43,11 +43,11 @@
 
                             </div>
                         </div>
-                        <div class="col-xxl-3 col-md-3">
+                        <div class="col-xxl-3 col-md-3 mb-5">
                             <div class="card rounded-5 cards text-secondary">
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <h5 class="card-title fs-5">Active Tasks</h5>
+                                        <h5 class="card-title text-muted fs-5">Active Tasks</h5>
                                         <i class="bi bi-list-task fs-3 fw-bold"></i>
 
                                     </div>
@@ -64,11 +64,11 @@
 
                             </div>
                         </div>
-                        <div class="col-xxl-3 col-md-3">
+                        <div class="col-xxl-3 col-md-3 mb-5">
                             <div class="card rounded-5 cards text-secondary">
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <h5 class="card-title fs-5">Team Members</h5>
+                                        <h5 class="card-title text-muted fs-5">Team Members</h5>
                                         <i class="bi bi-people fs-3 fw-bold"></i>
                                     </div>
                                     <div class="">
@@ -85,11 +85,11 @@
 
                             </div>
                         </div>
-                        <div class="col-xxl-3 col-md-3 col-12">
+                        <div class="col-xxl-3 col-md-3 col-12 mb-5">
                             <div class="card rounded-5 cards text-secondary">
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <h5 class="card-title fs-5 ">Productivity</h5>
+                                        <h5 class="card-title text-muted fs-5 ">Productivity</h5>
                                         <i class="bi bi-opencollective fs-3 fw-bold"></i>
                                     </div>
                                     <div class="">
@@ -111,11 +111,11 @@
             <div class="row">
                 <div class="col-12">
                     <div class="row">
-                        <div class="col-md-8 col-12">
+                        <div class="col-md-7 col-12 mb-5">
                             <div class="card rounded-5 cards text-secondary">
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <h5 class="card-title fs-5 ">Initiatives</h5>
+                                        <h5 class="card-title text-muted fs-5 ">Initiatives</h5>
                                     </div>
                                     <div class="table-responsive-lg">
                                         <table class="table table-hover">
@@ -206,11 +206,11 @@
 
                             </div>
                         </div>
-                        <div class="col-md-4 col-12">
+                        <div class="col-md-5 col-12 mb-5">
                             <div class="card rounded-5 cards text-secondary">
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <h5 class="card-title fs-5">Team Members</h5>
+                                        <h5 class="card-title text-muted fs-5">Team Members</h5>
                                     </div>
                                     <div class="text-secondary table-responsive-lg">
                                         <table class="table table-hover">
@@ -259,9 +259,9 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-12">
+                <div class="col-12 mb-5">
                     <div class="card rounded-5 cards text-secondary">
-                        <h4 class="card-title ms-3 sessionType">Session by Device Type</h4>
+                        <h4 class="card-title ms-3 text-muted sessionType">Session by Device Type</h4>
                         <div class="card-body mt-3 d-flex">
                             <div class="col-4 d-flex flex-column justify-content-evenly">
                                 <h4 class=" fs-5 fw-bold">Desktop</h4>

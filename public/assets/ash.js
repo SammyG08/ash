@@ -25,12 +25,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-//variables for system
+function getUrl(url) {
+    url = url.substring(21);
+    return url;
+}
+// variables for system
 let displayMode = localStorage.getItem("mode");
 
 const addRecordForm = document.querySelector(".addRecordForm");
-// const viewRecordBtn = document.querySelector(".view-record-btn");
-// const viewRecord = document.querySelector(".record-div");
 
 const heading = document.querySelectorAll(".heading");
 const footer = document.querySelectorAll(".footer");
@@ -68,6 +70,15 @@ const modeIcon = document.querySelector(".modeIcon");
 const body = document.querySelector("body");
 const addRecord = document.querySelector(".addRecord");
 
+const tbody = document.querySelector(".tbody");
+const search = document.querySelector(".search");
+
+const searchForm = document.querySelector(".search-form");
+const searchTable = document.querySelector(".search-result-table");
+
+const searchIcon = document.querySelector(".search-icon");
+const searchCard = document.querySelector(".search-result-card");
+
 const changeCardColor = (card) => {
     card.classList.add("bg-dark");
 };
@@ -77,6 +88,7 @@ const changeProgressSectionTextColor = (progress) => {
 };
 
 const changeCardTitleColor = (title) => {
+    title.classList.remove("text-muted");
     title.classList.add("text-secondary");
 };
 
@@ -93,7 +105,7 @@ const enableDark = () => {
     modeIcon.classList.add("bi-moon-stars-fill");
 
     body.classList.add("display");
-    document.querySelector(".sideBar").classList.add("bg-dark");
+    document.querySelector(".sideBar").classList.add("dark-sidebar");
 
     document.querySelector(".navHeader").classList.add("bg-dark");
     document.querySelector(".companyName").classList.add("text-white");
@@ -112,77 +124,91 @@ const enableDark = () => {
         link.classList.add("bg-dark");
     });
 
-    //section js for specific routes
-    if (window.location.toString().includes("dashboard")) {
-        document.querySelector(".greetUser").classList.add("text-white");
-        document.querySelector(".sessionType").classList.remove("text-muted");
-        document.querySelector(".dashboard").classList.add("text-white");
-        progressSection.forEach(changeProgressSectionTextColor);
-        tables.forEach(changeTableColor);
-        tableHeads.forEach(changeTableHeadColor);
-        document.querySelector(".userIcon").classList.add("text-white");
-    }
+    //section js for specific dashboard url
+    switch (getUrl(window.location.href)) {
+        case "/dashboard":
+            document.querySelector(".greetUser").classList.add("text-white");
+            document
+                .querySelector(".sessionType")
+                .classList.remove("text-muted");
+            document.querySelector(".dashboard").classList.add("text-white");
+            progressSection.forEach(changeProgressSectionTextColor);
+            tables.forEach(changeTableColor);
+            tableHeads.forEach(changeTableHeadColor);
+            document.querySelector(".userIcon").classList.add("text-white");
+            break;
+        case "/agrifood":
+            recordNum.forEach(function (number) {
+                number.classList.add("text-light");
+                number.classList.add("bg-dark");
+            });
+            search.classList.add("bg-dark");
+            search.classList.add("text-white");
 
-    if (addRecord) {
-        recordNum.forEach(function (number) {
-            number.classList.add("text-light");
-            number.classList.add("bg-secondary");
-        });
+            search.classList.add("search-dark");
+            searchTable.classList.add("table-dark");
+            searchCard.classList.add("dark-search-result-card");
 
-        title.forEach(function (name) {
-            name.classList.add("light-text");
-        });
+            searchIcon.classList.add("bg-dark");
+            searchIcon.classList.add("text-white");
 
-        genderNum.forEach(function (num) {
-            num.classList.remove("text-muted");
-            num.classList.add("text-secondary");
-        });
+            addRecord.classList.add("bg-dark");
+            addRecord.classList.remove("bg-secondary-subtle");
 
-        gender.forEach(function (sex) {
-            sex.classList.add("bg-light");
-        });
+            title.forEach(function (name) {
+                name.classList.add("light-text");
+            });
 
-        gender.forEach(function (sex) {
-            sex.classList.add("text-success");
-            sex.classList.remove("text-muted");
-        });
+            genderNum.forEach(function (num) {
+                num.classList.remove("text-muted");
+                num.classList.add("text-secondary");
+            });
 
-        cohort.forEach(function (cohort) {
-            cohort.classList.remove("text-dark");
-            cohort.classList.add("text-light");
-        });
+            gender.forEach(function (sex) {
+                sex.classList.add("bg-light");
+            });
 
-        totalNum.forEach(function (total) {
-            total.classList.add("text-secondary");
-            total.classList.remove("text-muted");
-        });
+            gender.forEach(function (sex) {
+                sex.classList.add("text-success");
+                sex.classList.remove("text-muted");
+            });
 
-        footer.forEach(function (footerBorder) {
-            footerBorder.classList.remove("border-dark");
-            footerBorder.classList.add("border-secondary");
-        });
+            cohort.forEach(function (cohort) {
+                cohort.classList.remove("text-dark");
+                cohort.classList.add("text-light");
+            });
 
-        aFoodCards.forEach(function (card) {
-            card.classList.add("bg-dark");
-            card.classList.add("darkon");
-            card.classList.remove("light");
-            card.classList.remove("h-100");
-        });
+            totalNum.forEach(function (total) {
+                total.classList.add("text-secondary");
+                total.classList.remove("text-muted");
+            });
 
-        division.forEach(function (div) {
-            div.classList.remove("bg-light");
-            div.classList.add("dark");
-        });
-    }
+            footer.forEach(function (footerBorder) {
+                footerBorder.classList.remove("border-dark");
+                footerBorder.classList.add("border-secondary");
+            });
 
-    if (heading.length > 0) {
-        heading.forEach(function (head) {
-            head.classList.remove("text-muted");
-            head.classList.add("text-light");
-        });
-        recordTable.classList.add("table-dark");
-        addRecordForm.classList.add("formcolordark");
-        addRecordForm.classList.remove("formcolorlight");
+            aFoodCards.forEach(function (card) {
+                card.classList.add("dark-bg");
+                card.classList.add("darkon");
+                card.classList.remove("light");
+                card.classList.remove("h-100");
+            });
+
+            division.forEach(function (div) {
+                div.classList.remove("bg-light");
+                div.classList.remove("shadow");
+                div.classList.add("shadow-sm");
+                div.classList.add("dark");
+            });
+            break;
+        case "/agrifood/upload":
+            addRecordForm.classList.add("formcolordark");
+            addRecordForm.classList.remove("formcolorlight");
+            recordTable === null ? "" : recordTable.classList.add("table-dark");
+            break;
+        default:
+            break;
     }
 };
 
@@ -203,7 +229,7 @@ const disableDark = () => {
     document.querySelector(".icon").classList.remove("text-white");
 
     document.querySelector(".logoImg").classList.remove("d-none");
-    document.querySelector(".sideBar").classList.remove("bg-dark");
+    document.querySelector(".sideBar").classList.remove("dark-sidebar");
 
     cards.forEach(function (card) {
         card.classList.remove("bg-dark");
@@ -219,89 +245,101 @@ const disableDark = () => {
     });
 
     //section js for specific routes
-    if (window.location.toString().includes("dashboard")) {
-        document.querySelector(".greetUser").classList.remove("text-white");
-        document.querySelector(".dashboard").classList.remove("text-white");
-        document.querySelector(".sessionType").classList.add("text-muted");
-        document.querySelector(".userIcon").classList.remove("text-white");
+    switch (getUrl(window.location.href)) {
+        case "/dashboard":
+            document.querySelector(".greetUser").classList.remove("text-white");
+            document.querySelector(".dashboard").classList.remove("text-white");
+            document.querySelector(".sessionType").classList.add("text-muted");
+            document.querySelector(".userIcon").classList.remove("text-white");
 
-        progressSection.forEach(function (progress) {
-            progress.classList.remove("text-white");
-        });
+            progressSection.forEach(function (progress) {
+                progress.classList.remove("text-white");
+            });
 
-        tables.forEach(function (table) {
-            table.classList.remove("table-dark");
-        });
+            tables.forEach(function (table) {
+                table.classList.remove("table-dark");
+            });
 
-        tableHeads.forEach(function (tableHead) {
-            tableHead.classList.remove("bg-transparent");
-        });
-    }
+            tableHeads.forEach(function (tableHead) {
+                tableHead.classList.remove("bg-transparent");
+            });
+            break;
+        case "/agrifood":
+            recordNum.forEach(function (number) {
+                number.classList.remove("text-light");
+                number.classList.remove("bg-dark");
+            });
+            search.classList.remove("bg-dark");
+            search.classList.remove("text-white");
 
-    if (addRecord) {
-        recordNum.forEach(function (number) {
-            number.classList.remove("text-light");
-            number.classList.remove("bg-secondary");
-        });
+            search.classList.remove("search-dark");
+            searchIcon.classList.remove("bg-dark");
 
-        title.forEach(function (name) {
-            name.classList.remove("light-text");
-            // name.classList.add("text-muted");
-        });
+            searchIcon.classList.remove("text-white");
+            searchTable.classList.remove("table-dark");
 
-        genderNum.forEach(function (num) {
-            num.classList.remove("text-secondary");
-        });
+            searchCard.classList.remove("dark-search-result-card");
+            addRecord.classList.remove("bg-dark");
 
-        gender.forEach(function (sex) {
-            sex.classList.remove("bg-light");
-        });
+            addRecord.classList.add("bg-secondary-subtle");
 
-        gender.forEach(function (sex) {
-            sex.classList.remove("text-success");
-            sex.classList.add("text-muted");
-        });
+            title.forEach(function (name) {
+                name.classList.remove("light-text");
+                // name.classList.add("text-muted");
+            });
 
-        cohort.forEach(function (cohort) {
-            cohort.classList.remove("text-light");
-            cohort.classList.add("text-dark");
-        });
+            genderNum.forEach(function (num) {
+                num.classList.remove("text-secondary");
+            });
 
-        totalNum.forEach(function (total) {
-            total.classList.remove("text-secondary");
-            total.classList.add("text-muted");
-        });
+            gender.forEach(function (sex) {
+                sex.classList.remove("bg-light");
+                sex.classList.remove("text-success");
+                sex.classList.add("text-muted");
+            });
 
-        footer.forEach(function (footerBorder) {
-            footerBorder.classList.remove("border-secondary");
-            footerBorder.classList.add("border-dark");
-        });
+            cohort.forEach(function (cohort) {
+                cohort.classList.remove("text-light");
+                cohort.classList.add("text-dark");
+            });
 
-        aFoodCards.forEach(function (card) {
-            card.classList.remove("bg-dark");
-            card.classList.remove("darkon");
-            card.classList.add("light");
-            card.classList.add("h-100");
-        });
+            totalNum.forEach(function (total) {
+                total.classList.remove("text-secondary");
+                total.classList.add("text-muted");
+            });
 
-        division.forEach(function (div) {
-            div.classList.remove("dark");
-            div.classList.add("bg-light");
-        });
-    }
-    if (heading) {
-        heading.forEach(function (head) {
-            head.classList.add("text-muted");
-            head.classList.remove("text-light");
-        });
+            footer.forEach(function (footerBorder) {
+                footerBorder.classList.remove("border-secondary");
+                footerBorder.classList.add("border-dark");
+            });
 
-        recordTable.classList.remove("table-dark");
-        addRecordForm.classList.remove("formcolordark");
-        addRecordForm.classList.add("formcolorlight");
+            aFoodCards.forEach(function (card) {
+                card.classList.remove("dark-bg");
+                card.classList.remove("darkon");
+                card.classList.add("light");
+                card.classList.add("h-100");
+            });
+
+            division.forEach(function (div) {
+                div.classList.remove("dark");
+                div.classList.add("bg-light");
+                div.classList.remove("shadow-sm");
+                div.classList.add("shadow");
+            });
+            break;
+        case "/agrifood/upload":
+            recordTable === null
+                ? ""
+                : recordTable.classList.remove("table-dark");
+            addRecordForm.classList.remove("formcolordark");
+            addRecordForm.classList.add("formcolorlight");
+            break;
+        default:
+            break;
     }
 };
 
-//change display mode logic
+// change display mode logic
 if (displayMode === "dark") {
     enableDark();
 }
@@ -317,11 +355,14 @@ if (toggle) {
     });
 }
 
-//upload agrifood excel sheet
+// used jquery in making ajax requests
 $(document).ready(function () {
     $(".agrifoodform").submit(function (e) {
         e.preventDefault();
         let formData = new FormData(this);
+        // for (let [key, value] of formData.entries()) {
+        //     console.log(`${key}:`, value);
+        // }
         $.ajax({
             url: $(this).data("url"),
             type: "POST",
@@ -343,11 +384,56 @@ $(document).ready(function () {
                 }
             },
             error: function (xhr, status, error) {
-                console.log("Error: ", xhr.responseText);
+                const data = xhr.responseText;
+                const jsonResponse = JSON.parse(data);
+                if (xhr.status == 422) {
+                    document
+                        .querySelector(".errorDiv")
+                        .classList.remove("d-none");
+                    document.querySelector(".errorMessage").innerHTML =
+                        jsonResponse.message;
+                }
+            },
+        });
+    });
+    $(".search-form").on("keyup submit", function (e) {
+        e.preventDefault();
+        $.ajax({
+            url: $(this).data("url"),
+            type: "GET",
+            data: $(this).serialize(),
+            success: function (response) {
+                response.status
+                    ? showSearchResult(response.status, response.result)
+                    : showSearchResult(
+                          response.status,
+                          response.result,
+                          response.message
+                      );
+            },
+            error: function (xhr, status, error) {
+                console.log(xhr.responseText);
             },
         });
     });
 });
+
+function showSearchResult(status, results, msg = "found") {
+    if (status == true) {
+        const children = document.querySelectorAll(".records");
+        children === null
+            ? ""
+            : children.forEach((child) => {
+                  tbody.removeChild(child);
+              });
+        const searchResultCard = document.querySelector(".search-result-card");
+        searchResultCard.classList.remove("d-none");
+        results.forEach(updateTable);
+    } else {
+        console.log(msg);
+    }
+}
+
 function showUploadStatus(status, records) {
     let responseHeader = document.querySelector(".statusHeader");
     document.querySelector(".agrifoodform").reset();
@@ -355,18 +441,20 @@ function showUploadStatus(status, records) {
     responseHeader.style.display = "grid";
     statusCard.style.display = "grid";
     responseHeader.innerHTML = status;
-    records.forEach(updateRecords);
-    //show upload status for 3seconds
+    const child = document.querySelectorAll(".records");
+    child.forEach((element) => {
+        tbody.removeChild(element);
+    });
+    records.forEach(updateTable);
+    // show upload status for 3seconds
     setTimeout(function () {
         responseHeader.style.display = "none";
         statusCard.style.display = "none";
         addRecordForm.classList.remove("d-none");
     }, 3000);
 }
-//update agrifood table records on successfull upload of excel sheet
-function updateRecords(record) {
-    const tbody = document.querySelector(".tbody");
-    const child = document.querySelectorAll(".records");
+
+function updateTable(record) {
     const tr = document.createElement("tr");
     tr.innerHTML = `
     <td class=text-secondary> ${record.other_names} </td>
@@ -390,9 +478,6 @@ function updateRecords(record) {
     <td class=text-secondary> ${record.agrifood_program_rating} </td>
     <td class=text-secondary> ${record.recommendation_for_improving_program} </td>
     `;
-    child.forEach(function (node) {
-        console.log(node.parentElement.nodeName);
-        tbody.removeChild(node);
-    });
+    tr.classList.add("records");
     tbody.appendChild(tr);
 }

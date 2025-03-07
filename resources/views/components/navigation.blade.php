@@ -21,7 +21,7 @@
 </header><!-- End Header -->
 <aside id="sidebar" class="sidebar sideBar">
     <ul class="sidebar-nav" id="sidebar-nav ">
-        <li class="nav-item mb-5 shadow-sm item">
+        <li class="nav-item mb-5 item shadow-sm">
             <a class="nav-link collapsed text-muted link {{ request()->routeIs('dashboard') ? ' fs-6 fw-bold' : '' }}"
                 href="{{ route('dashboard') }}">
                 <i class="bi bi-grid"></i>
@@ -29,46 +29,46 @@
             </a>
         </li><!-- End Dashboard Nav -->
         <li class="nav-heading">Initiatives</li>
-        <li class="nav-item shadow-sm">
+        <li class="nav-item">
             <a class="nav-link collapsed text-muted {{ request()->routeIs('ABLE') ? ' fs-6 fw-bold' : '' }}"
                 href="{{ route('ABLE') }}">
                 <i class="bi bi-unlock"></i>
                 <span class="iniName">ABLE</span>
             </a>
         </li><!-- End ABLE Nav -->
-        <li class="nav-item shadow-sm">
+        <li class="nav-item">
             <a class="nav-link collapsed text-muted{{ request()->routeIs('AgriFood') ? 'fs-6 fw-bold' : '' }}"
                 href="{{ route('AgriFood') }}">
                 <i class="bi bi-flower2"></i><span class="iniName">AgriFood</span>
             </a>
         </li><!-- End AgriFood Nav -->
-        <li class="nav-item shadow-sm item">
+        <li class="nav-item item">
             <a class="nav-link collapsed text-muted {{ request()->routeIs('CLIMATECARE') ? 'fs-6 fw-bold' : '' }}"
                 href="{{ route('CLIMATECARE') }}">
                 <i class="bi bi-tropical-storm"></i><span class="iniName">Climate Care</span>
             </a>
         </li><!-- End Climate Care Nav -->
-        <li class="nav-item shadow-sm">
+        <li class="nav-item">
             <a class="nav-link collapsed text-muted {{ request()->routeIs('DigiSME') ? 'fs-6 fw-bold' : '' }}"
                 href="{{ route('DigiSME') }}">
                 <i class="bi bi-slack"></i><span class="iniName">DigiSME</span>
             </a>
         </li><!-- End DigiSME Nav -->
-        <li class="nav-item shadow-sm">
+        <li class="nav-item ">
             <a class="nav-link collapsed text-muted {{ request()->routeIs('DSKILLS') ? 'fs-6 fw-bold' : '' }}"
                 href="{{ route('DSKILLS') }}">
                 <i class="bi bi-unity"></i><span class="iniName">District Skills and Entrepreneurship
                     Roadshow</span>
             </a>
         </li><!-- End DSKILLS Nav -->
-        <li class="nav-item shadow-sm">
+        <li class="nav-item">
             <a class="nav-link collapsed text-muted {{ request()->routeIs('GREENOVATE') ? 'fs-6 fw-bold' : '' }}"
                 href="{{ route('GREENOVATE') }}">
                 <i class="bi bi-rainbow"></i><span class="iniName">Greenovate</span>
             </a>
         </li><!-- End GREENOVATE Nav -->
         <li class="nav-heading mt-5">Controls</li>
-        <li class="nav-item">
+        <li class="nav-item shadow-sm">
             <a class="nav-link collapsed text-muted" href="#">
                 <i class="bi bi-box-arrow-left"></i><span class="iniName">Logout</span>
             </a>
