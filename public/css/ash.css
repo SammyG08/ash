@@ -1,0 +1,229 @@
+body {
+    background-color: snow !important;
+}
+body.display {
+    background-color: rgba(0, 0, 0, 0.9) !important;
+}
+.numberColor {
+    background-color: ghostwhite;
+}
+.light-text {
+    color: seashell;
+}
+.dark-bg {
+    background-color: rgba(0, 0, 0, 0.01) !important;
+}
+.status-card-light-bg {
+    background-color: whitesmoke;
+}
+.formcolorlight {
+    background-color: snow;
+}
+.formcolordark {
+    background-color: #332d2d;
+}
+.status-cardbg {
+    background-color: darkturquoise;
+}
+input:focus {
+    box-shadow: none !important;
+}
+.buttons {
+    background-color: rgba(0, 0, 0, 0.4) !important;
+    transition: 1.5s !important;
+}
+.buttons:hover,
+.buttons:focus {
+    box-shadow: inset 0px -5em 0 0 rgba(0, 0, 0, 0.6);
+}
+.signInBtn:hover,
+.signInBtn:focus {
+    background-color: whitesmoke !important;
+    box-shadow: 0px 5px rgba(0, 0, 0, 0.6) !important;
+}
+.joinNowBtn:hover,
+.joinNowBtn:focus {
+    background-color: rgba(0, 0, 0, 0.2) !important;
+    box-shadow: 0px 5px rgba(0, 0, 0, 0.6) !important;
+}
+.cards {
+    transition: 0.5s !important;
+}
+.cards:hover,
+.cards:focus {
+    transform: rotateY(20deg);
+}
+.division {
+    transition: 0.5s;
+}
+.division:hover,
+.divison:focus {
+    box-shadow: -1rem 0rem 30px rgba(0, 0, 0, 0.1);
+    transform: scale(1.01, 1.05);
+}
+.a-food-card {
+    position: relative;
+    background: linear-gradient(to top, transparent, transparent);
+}
+.a-food-card::after,
+.a-food-card::before {
+    position: absolute;
+    content: ".";
+    color: transparent;
+    inset: -1;
+    z-index: 0;
+}
+.dark {
+    background-color: rgba(255, 255, 255, 0.025) !important;
+}
+@keyframes border {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
+}
+.a-food-card::before {
+    background-image: linear-gradient(
+        to bottom,
+        transparent,
+        transparent,
+        transparent,
+        darkturquoise
+    );
+    top: 0;
+    width: 100%;
+    animation-name: border;
+    animation-iteration-count: infinite;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    height: 5px;
+}
+.a-food-card.darkon::before {
+    background-image: linear-gradient(
+        to bottom,
+        transparent,
+        transparent,
+        transparent,
+        rgba(255, 255, 255, 0.3)
+    );
+    top: 0;
+    width: 100%;
+    animation-name: border;
+    animation-iteration-count: infinite;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    height: 5px;
+}
+.division {
+    box-shadow: inset 5rem 0rem 7px rgba(0, 0, 0, 0.01);
+}
+
+.light {
+    background-color: white;
+}
+.introSection {
+    margin-top: 150px !important;
+}
+.svg {
+    margin-bottom: 0px !important;
+}
+.introduction {
+    margin-bottom: 50px !important;
+}
+.svgDiv {
+    background-image: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.4),
+        rgba(255, 255, 255, 0.4),
+        antiquewhite,
+        white,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    background-position: left;
+}
+.addRecord:focus,
+.addRecord:hover {
+    background-color: black;
+}
+.search::placeholder {
+    color: black;
+    font-size: 14px;
+}
+.search-dark::placeholder {
+    color: white;
+}
+.dark-sidebar {
+    background-color: rgba(0, 0, 0, 0.01) !important;
+}
+.dark-search-result-card {
+    background-color: rgba(255, 255, 255, 0.03) !important;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    height: 1.5em;
+    width: 1.5em;
+    border-radius: 50em;
+    background: url("../assets/img/close.svg") no-repeat 50% 50%;
+    background-size: contain;
+}
+@media screen and (max-width: 550px) {
+    .imgToShowOnSmScreen {
+        display: table !important;
+    }
+    .imgToShowOnLgScreen {
+        display: none !important;
+    }
+    .Buttons {
+        display: flex !important;
+        justify-content: end !important;
+        align-items: center !important;
+    }
+    button {
+        font-size: 15px !important;
+    }
+    .introduction {
+        margin-top: 20px !important;
+        text-align: justify !important;
+    }
+    .welcome {
+        text-align: center !important;
+    }
+    .introSection {
+        margin-top: 20px !important;
+    }
+    hr {
+        display: none !important;
+    }
+    .svg {
+        display: none !important;
+    }
+    /* #sidebar{
+        width: 90vw !important;
+    } */
+}
+@media screen and (min-width: 768px) {
+    .introduction {
+        margin-top: 20px !important;
+    }
+    .introSection {
+        margin-top: 80px !important;
+    }
+    .svgDiv {
+        display: none !important;
+    }
+}
+@media screen and (max-width: 280px) {
+    .signIn {
+        padding: 0px !important;
+    }
+    .signInText {
+        font-size: 20px !important;
+    }
+    .svgDiv {
+        display: none !important;
+    }
+}
